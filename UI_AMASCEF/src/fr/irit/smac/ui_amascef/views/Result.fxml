@@ -23,8 +23,8 @@
                         <TableView fx:id="table" layoutX="155.0" layoutY="65.0" prefHeight="867.0" prefWidth="510.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                               <TableColumn fx:id="names" prefWidth="150.0" text="Name" />
-                            <TableColumn fx:id="parametersMissing" prefWidth="254.00003051757812" text="Nb parameters sent" />
-                            <TableColumn fx:id="parametersSent" prefWidth="302.0" text="Nb parameters receive" />
+                            <TableColumn fx:id="parametersSent" prefWidth="254.00003051757812" text="Nb parameters sent" />
+                            <TableColumn fx:id="parametersMissing" prefWidth="302.0" text="Nb parameters receive" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
