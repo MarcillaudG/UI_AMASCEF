@@ -5,14 +5,19 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import fr.irit.smac.mas.AGFunction;
+import fr.irit.smac.modelui.AGFDataModel;
 import fr.irit.smac.modelui.AGFModel;
+import fr.irit.smac.ui_amascef.main.AGFDataMain;
 import fr.irit.smac.ui_amascef.main.ResultMain;
 import fr.irit.smac.ui_amascef.models.AMASCEFModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBoxTreeItem;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
@@ -20,6 +25,8 @@ import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.CheckBoxTreeCell;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 
 public class ResultController{
@@ -39,6 +46,9 @@ public class ResultController{
 
 	@FXML
 	private TableColumn<AGFModel, String> names;
+	
+	@FXML
+	private TableColumn<AGFModel,Void> showDetails;
 
 	private AMASCEFModel model;
 
@@ -79,6 +89,7 @@ public class ResultController{
 		this.tree.setRoot(rootItem);
 		tree.setCellFactory( CheckBoxTreeCell.<String> forTreeView());
 
+		
 
 
 		this.tree.setVisible(true);
@@ -86,7 +97,9 @@ public class ResultController{
 		names.setCellValueFactory(cellData -> cellData.getValue().getName());	 
 		parametersSent.setCellValueFactory(cellData -> cellData.getValue().getNbParamsSent().asObject());	 
 		parametersMissing.setCellValueFactory(cellData -> cellData.getValue().getNbParamsReceive().asObject());
-
+		
+		this.addButtonToTable();
+		
 	}
 
 
@@ -138,14 +151,55 @@ public class ResultController{
 						this.agfNotObserved.put(item.getValue(), this.agfData.remove(ind));
 				}
 			});
+			
+			
+			
+			
 			this.tree.getRoot().getChildren().add(item);
 		}
 	}
 
-	@FXML
-	private void handleClickOnTree() {
+	private void addButtonToTable() {
 
-	}
+        Callback<TableColumn<AGFModel, Void>, TableCell<AGFModel, Void>> cellFactory = new Callback<TableColumn<AGFModel, Void>, TableCell<AGFModel, Void>>() {
+            @Override
+            public TableCell<AGFModel, Void> call(final TableColumn<AGFModel, Void> param) {
+                final TableCell<AGFModel, Void> cell = new TableCell<AGFModel, Void>() {
 
+                    private final Button btn = new Button("Show");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                        	String name = this.getTableView().getItems().get(this.getIndex()).getName().get();
+                        	//AGFDataMain agfdatamain = new AGFDataMain(model.createAGFDataModel(this.getTableView().getItems().get(this.getIndex()).getName().get()));
+                        	AGFDataMain agfdatamain = new AGFDataMain(model,name);
+                        	try {
+								agfdatamain.start(new Stage());
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+                            btn.setDisable(true);
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        showDetails.setCellFactory(cellFactory);
+
+
+    }
 
 }
