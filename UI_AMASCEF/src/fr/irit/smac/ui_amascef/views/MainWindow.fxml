@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.irit.smac.ui_amascef.views.RunController">
@@ -41,13 +42,17 @@
                         <ToggleButton fx:id="cross" layoutX="242.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleCrossButton" text="No" />
                         <Label layoutX="121.0" layoutY="114.0" text="Cross parameters" />
                         <Label layoutX="411.0" layoutY="114.0" text="Number of agents" />
-                        <TextField fx:id="nbAgents" layoutX="596.0" layoutY="110.0" prefHeight="25.0" prefWidth="44.0" text="10" />
+                        <TextField fx:id="nbAgents" layoutX="608.0" layoutY="110.0" prefHeight="25.0" prefWidth="44.0" text="10" />
                         <Label layoutX="411.0" layoutY="164.0" text="Number of fixed parameters" />
-                        <TextField fx:id="nbFixes" layoutX="597.0" layoutY="160.0" prefHeight="25.0" prefWidth="67.0" text="100" />
+                        <TextField fx:id="nbFixes" layoutX="609.0" layoutY="160.0" prefHeight="25.0" prefWidth="67.0" text="100" />
                         <Label layoutX="411.0" layoutY="212.0" text="Number of variable parameters" />
-                        <TextField fx:id="nbVariables" layoutX="597.0" layoutY="208.0" prefHeight="25.0" prefWidth="68.0" text="20" />
+                        <TextField fx:id="nbVariables" layoutX="609.0" layoutY="208.0" prefHeight="25.0" prefWidth="68.0" text="20" />
                         <Label layoutX="411.0" layoutY="270.0" text="Number types of variables" />
-                        <TextField fx:id="nbTypes" layoutX="598.0" layoutY="266.0" prefHeight="25.0" prefWidth="75.0" text="50" />
+                        <TextField fx:id="nbTypes" layoutX="610.0" layoutY="266.0" prefHeight="25.0" prefWidth="75.0" text="50" />
+                        <ImageView fx:id="neocampus" fitHeight="82.0" fitWidth="200.0" layoutX="689.0" layoutY="591.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="smac" fitHeight="150.0" fitWidth="200.0" layoutX="152.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="411.0" layoutY="327.0" text="Number of zone of communication" />
+                        <TextField fx:id="nbZoneCom" layoutX="611.0" layoutY="323.0" prefHeight="25.0" prefWidth="73.0" text="3" />
                      </children>
                   </AnchorPane>
               </content>

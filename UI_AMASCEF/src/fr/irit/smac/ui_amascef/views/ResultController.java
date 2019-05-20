@@ -49,6 +49,9 @@ public class ResultController{
 	
 	@FXML
 	private TableColumn<AGFModel,Void> showDetails;
+	
+	@FXML
+	private TableColumn<AGFModel,Integer> criticalities;
 
 	private AMASCEFModel model;
 
@@ -97,6 +100,7 @@ public class ResultController{
 		names.setCellValueFactory(cellData -> cellData.getValue().getName());	 
 		parametersSent.setCellValueFactory(cellData -> cellData.getValue().getNbParamsSent().asObject());	 
 		parametersMissing.setCellValueFactory(cellData -> cellData.getValue().getNbParamsReceive().asObject());
+		criticalities.setCellValueFactory(cellData -> cellData.getValue().getCriticality().asObject());
 		
 		this.addButtonToTable();
 		
@@ -179,7 +183,6 @@ public class ResultController{
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-                            btn.setDisable(true);
                         });
                     }
 

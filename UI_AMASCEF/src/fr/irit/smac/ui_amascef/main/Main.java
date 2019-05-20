@@ -21,8 +21,6 @@ public class Main extends Application {
 		this.primaryStage = primaryStage;
 		initRootLayout();
 		
-		Image im = new Image(Main.class.getResourceAsStream("../images/logo.jpg"));
-		primaryStage.getIcons().add(im);
 	}
 
 	/**
@@ -34,7 +32,6 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("../views/MainWindow.fxml"));
 			rootLayout = (AnchorPane) loader.load();
-
 			// Show the scene containing the root layout.
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);

@@ -14,10 +14,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class RunController {
+	
+	@FXML
+	private ImageView neocampus;
+	
+	@FXML
+	private ImageView smac;
 
 	@FXML
 	private TextField nbAgents;
@@ -36,6 +44,9 @@ public class RunController {
 
 	@FXML
 	private Button run;
+	
+	@FXML
+	private TextField nbZoneCom;
 
 	private Main mainApp;
 
@@ -51,8 +62,16 @@ public class RunController {
 		nbTypes.setText("50");
 		nbVariables.setText("20");
 		nbFixes.setText("100");
+		nbZoneCom.setText("3");
+
+		Image image = new Image(Main.class.getResourceAsStream("../images/logo.jpg"));
+		this.neocampus.setImage(image);
+
+		Image image2 = new Image(Main.class.getResourceAsStream("../images/smac.png"));
+		this.smac.setImage(image2);
 
 		model = new AMASCEFModel();
+	
 	}
 
 	/**
@@ -70,12 +89,12 @@ public class RunController {
 	private void runAmas() {
 		String crossValue = (cross.isSelected()) ? "True" : "False";
 
-		this.model.run(nbAgents.getText(), nbFixes.getText(), nbVariables.getText(), nbTypes.getText(), crossValue);
+		this.model.run(nbAgents.getText(), nbFixes.getText(), nbVariables.getText(), nbTypes.getText(), crossValue, nbZoneCom.getText());
 
 
 		ResultMain res = new ResultMain(this.model);
 		try {
-			res.start(this.mainApp.getPrimaryStage());
+			res.start(new Stage());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

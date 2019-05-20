@@ -11,21 +11,22 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <SplitPane dividerPositions="0.2505815182913935" layoutX="-3.0" layoutY="-1.0" prefHeight="888.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <SplitPane dividerPositions="0.1850285472615775" layoutX="-3.0" layoutY="-1.0" prefHeight="888.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="867.0" prefWidth="147.0">
                      <children>
-                        <TreeView fx:id="tree" layoutX="92.0" layoutY="26.0" prefHeight="867.0" prefWidth="430.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <TreeView fx:id="tree" layoutX="92.0" layoutY="26.0" prefHeight="867.0" prefWidth="179.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
                         <TableView fx:id="table" layoutX="155.0" layoutY="65.0" prefHeight="867.0" prefWidth="571.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                              <TableColumn fx:id="names" prefWidth="150.0" text="Name" />
-                            <TableColumn fx:id="parametersSent" prefWidth="233.00003051757812" text="Nb parameters sent" />
-                            <TableColumn fx:id="parametersMissing" prefWidth="210.0" text="Nb parameters receive" />
-                              <TableColumn fx:id="showDetails" prefWidth="111.0" text="Show details" />
+                              <TableColumn fx:id="names" prefWidth="105.0" text="Name" />
+                            <TableColumn fx:id="parametersSent" prefWidth="168.00003051757812" text="Nb parameters sent" />
+                            <TableColumn fx:id="parametersMissing" prefWidth="231.0" text="Nb parameters received" />
+                              <TableColumn fx:id="criticalities" prefWidth="92.0" text="Criticality" />
+                              <TableColumn fx:id="showDetails" prefWidth="188.0" text="Show details" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
